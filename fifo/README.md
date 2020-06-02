@@ -1,0 +1,4 @@
+fifo_syn 为同步fifo,FIFO_DWTH确定FIFO的数据位宽，FIFO_DEPTH确定FIFO的深度为2的幂次，
+参数PROG_FULL_NEG_VALUE可以定制FIFO的可编程满信号，其应为一个正值，表示prog_full拉高时FIFO还可容纳的数据个数
+参数PROG_EMPTY_POS_VALUE可以定制FIFO的可编程空信号，其应为一个正值，表示当FIFO内的数据个数大于等于该值时，prog_empty空信号才拉低
+

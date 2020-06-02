@@ -1,0 +1,8 @@
+############ignore file###################
+/uart/sim/
+!/uart/sim/Makefile 
+!/uart/sim/filelist.f 
+/fifo/sim/ 
+!/fifo/sim/Makefile 
+!/fifo/sim/filelist.f 
+
