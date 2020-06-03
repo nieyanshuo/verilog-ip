@@ -29,11 +29,12 @@ module ram#(
    // Outputs
    douta, doutb,
    // Inputs
-   clk, rst, addra, dina, wea, addrb, dinb, web
+   clka, clkb, rst, addra, dina, wea, addrb, dinb, web
    );
 
 /*AUTOINPUT*/
-    input                       clk;
+    input                       clka;
+    input                       clkb;
     input                       rst;
     input   [ADDR_WDT-1 : 0]    addra;
     input   [DATA_WDT-1 : 0]    dina;
@@ -57,13 +58,13 @@ reg     [DATA_WDT-1 : 0]    doutb_r;
 wire    [DATA_WDT-1 : 0]    doutb_w;
 
 
-always@(posedge clk)
+always@(posedge clka)
     begin
         if(wea)
             regs[addra] <= dina;
     end
 
-always@(posedge clk)
+always@(posedge clkb)
     begin
         if(web&(addra != addrb))
             regs[addrb] <= dinb;
@@ -71,7 +72,7 @@ always@(posedge clk)
 
 
 //ram端口a输出{{{ 
-always@(posedge clk)
+always@(posedge clka)
     begin
         if(rst)
             douta_r <= 'd0;
@@ -86,7 +87,7 @@ assign  douta_w = regs[addra];
 assign  douta = (DOUT_REG==1'b1) ? douta_r : douta_w;/*}}}*/
 
 //ram端口b输出{{{
-always@(posedge clk)
+always@(posedge clkb)
     begin
         if(rst)
             doutb_r <= 'd0;

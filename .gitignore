@@ -5,4 +5,5 @@
 /fifo/sim/ 
 !/fifo/sim/Makefile 
 !/fifo/sim/filelist.f 
+*.swp
 

@@ -98,7 +98,7 @@ always@(posedge clk)
             end
     end/*}}}*/
 
-//读写计数,FIFO状态 
+//读写计数,FIFO状态 {{{
 always@(posedge clk)
     begin
         if(rst)
@@ -140,7 +140,7 @@ always@(posedge clk)
 assign  ram_wea     = wren_fifo;
 assign  ram_dina    = din;
 assign  ram_web     = 1'b0;
-assign  ram_dinb    = 'd0;  //端口b用来读
+assign  ram_dinb    = 'd0;  //端口b用来读}}}
 
 //例化的ram ip    {{{
 ram#(
@@ -153,7 +153,8 @@ ram#(
           .douta                        (),
           .doutb                        (ram_doutb),
           // Inputs
-          .clk                          (clk),
+          .clka                         (clk),
+          .clkb                         (clk),
           .rst                          (rst),
           .addra                        (ram_addra),
           .dina                         (ram_dina),
