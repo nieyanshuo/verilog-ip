@@ -161,7 +161,7 @@ always@(*)
 			default	: 			state_n = RX_IDLE;
 		endcase
 	end
-assign rts_o = state_c == RX_IDLE;
+assign rts_o = state_c == RX_DONE;
 
 
 //////////////////////////////////////////////////////////////////////
